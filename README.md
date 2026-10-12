@@ -36,3 +36,12 @@ Price Parities); they are teaching values, not official statistics.
 
 The raw files are kept exactly as the sources served them, so a live download in class can be
 compared with the snapshot. Files here are not updated during a semester.
+
+## snapshots/ (the weekly refresh)
+
+`scripts/refresh.py` pulls every source again and saves the files, unchanged, under
+`snapshots/<date>/` with a `manifest.csv` (file, publisher, URL, time of the pull, size, SHA-256
+hash, rows). `scripts/change_report.py` then writes `CHANGES.md` in the new folder: which files
+changed since the previous snapshot, how many rows each table gained, and whether Zillow revised
+past months. The GitHub Actions workflow in `.github/workflows/refresh.yml` runs both every Monday
+and commits the result, so the folder is a dated record of what each source said each week.

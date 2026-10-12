@@ -1,0 +1,39 @@
+name: Weekly refresh
+
+# Every Monday at 13:00 UTC (8:00 am Central), and whenever the button is pressed on the
+# Actions tab. Pulls every source, saves the raw files under snapshots/<date>/ with a manifest,
+# writes CHANGES.md against the previous snapshot, and commits the result.
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the libraries the scripts use
+        run: pip install pandas requests openpyxl lxml
+
+      - name: Pull every source into today's snapshot folder
+        run: python scripts/refresh.py
+
+      - name: Compare with the previous snapshot
+        run: python scripts/change_report.py
+
+      - name: Commit the snapshot
+        run: |
+          git config user.name "fda-data refresh"
+          git config user.email "actions@users.noreply.github.com"
+          git add snapshots
+          git commit -m "Snapshot $(date -u +%F)" || echo "nothing new to commit"
+          git push
