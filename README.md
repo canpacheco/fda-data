@@ -19,6 +19,7 @@ counties = pd.read_csv("https://raw.githubusercontent.com/canpacheco/fda-data/ma
 | `rents.csv` | one row per county with a Zillow rent figure (fewer counties than `counties.csv`) |
 | `disasters.csv` | one row per county per federal disaster declaration, 2015 to 2025 |
 | `state_economics.csv` | the state salary and cost-of-living values used in `counties.csv` |
+| `course_data.duckdb` | the same county data as a DuckDB database (tables counties, home_values, state_economics), the one the SQL weeks query |
 
 Home values and rents are Zillow research data. Salary and cost of living are representative
 state-level values calibrated to public sources (BLS Occupational Employment Statistics, BEA Regional
