@@ -1,0 +1,46 @@
+field,code,label
+loan_type,1,Conventional
+loan_type,2,FHA insured
+loan_type,3,VA guaranteed
+loan_type,4,USDA RHS or FSA guaranteed
+loan_purpose,1,Home purchase
+loan_purpose,2,Home improvement
+loan_purpose,4,Other purpose
+loan_purpose,5,Not applicable
+loan_purpose,31,Refinancing
+loan_purpose,32,Cash-out refinancing
+action_taken,1,Loan originated
+action_taken,2,Application approved but not accepted
+action_taken,3,Application denied
+action_taken,4,Application withdrawn by applicant
+action_taken,5,File closed for incompleteness
+action_taken,6,Purchased loan
+action_taken,7,Preapproval request denied
+action_taken,8,Preapproval request approved but not accepted
+lien_status,1,Secured by a first lien
+lien_status,2,Secured by a subordinate lien
+occupancy_type,1,Principal residence
+occupancy_type,2,Second residence
+occupancy_type,3,Investment property
+purchaser_type,0,Not applicable
+purchaser_type,1,Fannie Mae
+purchaser_type,2,Ginnie Mae
+purchaser_type,3,Freddie Mac
+purchaser_type,4,Farmer Mac
+purchaser_type,5,Private securitizer
+purchaser_type,6,"Commercial bank, savings bank, or savings association"
+purchaser_type,8,Affiliate institution
+purchaser_type,9,Other type of purchaser
+purchaser_type,71,"Credit union, mortgage company, or finance company"
+purchaser_type,72,Life insurance company
+denial_reason-1,1,Debt-to-income ratio
+denial_reason-1,2,Employment history
+denial_reason-1,3,Credit history
+denial_reason-1,4,Collateral
+denial_reason-1,5,Insufficient cash for downpayment or closing costs
+denial_reason-1,6,Unverifiable information
+denial_reason-1,7,Credit application incomplete
+denial_reason-1,8,Mortgage insurance denied
+denial_reason-1,9,Other
+denial_reason-1,10,Not applicable
+denial_reason-1,1111,Exempt

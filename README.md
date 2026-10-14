@@ -34,6 +34,13 @@ Price Parities); they are teaching values, not official statistics.
 | `fema_disaster_declarations.csv` | OpenFEMA Disaster Declarations Summaries v2, declared 2015 or later | October 2026 |
 | `bls_state_unemployment.csv` | BLS state unemployment rates, seasonally adjusted, via FRED | October 2026 |
 | `fred_mortgage30us.csv` | FRED series MORTGAGE30US, 30-year fixed mortgage rate, weekly | 1 October 2026 |
+| `hmda_lar_nwa_2020_2024.csv.gz` | HMDA loan application register for Benton and Washington counties, Arkansas, 2020 to 2024, from the FFIEC Data Browser API (179,193 rows, 99 columns; gzip of the CSV the API returned, one year per request, joined) | 20 August 2026 |
+| `hmda_filers_nwa_2020_2024.csv` | the lenders behind those rows, one row per lender per year (LEI, name, row count), from the same API | 20 August 2026 |
+| `hmda_codes.csv` | labels for the coded HMDA fields (loan type, loan purpose, action taken, lien status, occupancy, purchaser, first denial reason), from the FFIEC LAR data-field documentation | 20 August 2026 |
+
+`scripts/fetch_hmda_nwa.py` rebuilds the two HMDA files. The public HMDA file reports loan amounts
+and property values as the midpoint of a $10,000 interval, income in thousands of dollars, ages in
+buckets, and the word Exempt in fields a small lender need not report.
 
 The raw files are kept exactly as the sources served them, so a live download in class can be
 compared with the snapshot. Files here are not updated during a semester.
