@@ -108,7 +108,7 @@ def main(zip_path, repo_root):
           f"default rate {pop['default'].mean():.4f}")
     pop = pop[FINAL].astype({"loan_id": "int64", "last_credit_score": "int64"})
     for c in ["late_payments_2y", "inquiries_6m", "open_accounts", "public_records", "total_accounts",
-              "employment_years", "revolving_balance", "loan_amount"]:
+              "employment_years", "revolving_balance", "loan_amount", "issue_year"]:
         pop[c] = pop[c].astype("int64")
 
     rng = np.random.default_rng(SEED)
