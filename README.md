@@ -25,6 +25,30 @@ Home values and rents are Zillow research data. Salary and cost of living are re
 state-level values calibrated to public sources (BLS Occupational Employment Statistics, BEA Regional
 Price Parities); they are teaching values, not official statistics.
 
+## student/credit/ (the credit-model files)
+
+Real consumer loans from Lending Club, an online lender that published its loan book while it
+operated (2007 to 2020). Source: the "All Lending Club loan data" collection on Kaggle (Nathan George,
+CC0 public domain), which repackages the files Lending Club released. Built by
+`scripts/build_lending_club_slices.py`; the population is every 36-month loan issued 2012 to 2015 whose
+outcome is known (fully paid or charged off), with no blank in a model column. No names or addresses
+beyond the state are in the files.
+
+| File | What it is |
+|---|---|
+| `loans.csv` | 5,000 finished loans with the outcome: loan_id, loan_amount, interest_rate, annual_income, dti, credit_score, late_payments_2y, inquiries_6m, open_accounts, public_records, revolving_balance, card_utilization, total_accounts, employment_years, home_ownership, purpose, state, issue_year, last_credit_score, default |
+| `new_loans.csv` | 1,000 more loans with the outcome and `last_credit_score` removed, the loans a model is asked to score |
+| `loans_project.csv` | 50,000 more loans with the same columns as `loans.csv` |
+
+Column notes: amounts in dollars; `interest_rate`, `dti` (monthly debt payments over monthly income)
+and `card_utilization` (share of credit-card limits in use) are percentages; `credit_score` is the
+midpoint of the FICO range reported at application; `late_payments_2y` counts payments 30 or more days
+late in the two years before the loan; `inquiries_6m` counts credit checks in the six months before;
+`employment_years` is 0 for under one year and 10 for ten or more; `default` is 1 when the loan was
+charged off. `last_credit_score` is the FICO midpoint the last time the lender pulled it, which for a
+charged-off loan is after the missed payments; it is in the file on purpose as a column recorded after
+the outcome.
+
 ## raw/ (snapshots of public sources, as downloaded)
 
 | File | Source | Snapshot |
