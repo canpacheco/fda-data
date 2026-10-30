@@ -61,8 +61,11 @@ the outcome.
 | `hmda_lar_nwa_2020_2024.csv.gz` | HMDA loan application register for Benton and Washington counties, Arkansas, 2020 to 2024, from the FFIEC Data Browser API (179,193 rows, 99 columns; gzip of the CSV the API returned, one year per request, joined) | 20 August 2026 |
 | `hmda_filers_nwa_2020_2024.csv` | the lenders behind those rows, one row per lender per year (LEI, name, row count), from the same API | 20 August 2026 |
 | `hmda_codes.csv` | labels for the coded HMDA fields (loan type, loan purpose, action taken, lien status, occupancy, purchaser, first denial reason), from the FFIEC LAR data-field documentation | 20 August 2026 |
+| `census_popest_counties_2024.csv` | Census Bureau Vintage 2024 county population estimates (CO-EST2024-ALLDATA): 51 state rows and 3,144 county rows, population, births, deaths, migration 2020 to 2024; Latin-1 encoded | October 2026 |
+| `ers_unemployment_income_2023.xlsx` | USDA Economic Research Service county unemployment (BLS LAUS) 2000 to 2023 and median household income (Census SAIPE) 2022; column names on row 5, codebook on the second sheet | October 2026 |
+| `census_cbsa_delineation_2023.xlsx` | Census Bureau list of core based statistical areas, July 2023 (OMB delineations): one row per county in a metropolitan or micropolitan area; column names on row 3 | October 2026 |
 
-`scripts/fetch_hmda_nwa.py` rebuilds the two HMDA files. The public HMDA file reports loan amounts
+`scripts/fetch_hmda_nwa.py` rebuilds the two HMDA files and `scripts/fetch_county_sources.py` the three county source files of the combining week. The public HMDA file reports loan amounts
 and property values as the midpoint of a $10,000 interval, income in thousands of dollars, ages in
 buckets, and the word Exempt in fields a small lender need not report.
 
